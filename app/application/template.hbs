@@ -1,0 +1,21 @@
+<nav>
+  {{#link-to "index"}}
+    Index
+  {{/link-to}}
+  {{#link-to "secret"}}
+    Secrets
+  {{/link-to}}
+  {{#if session.isAuthenticated}}
+    <span>{{sessionAccount.currentUser.username}}</span>
+    <button {{action "logout"}}>Logout</button>
+  {{else}}
+    {{#link-to "login"}}
+      Login
+    {{/link-to}}
+    {{#link-to "signup"}}
+      Sign up
+    {{/link-to}}
+  {{/if}}
+</nav>
+
+{{outlet}}
